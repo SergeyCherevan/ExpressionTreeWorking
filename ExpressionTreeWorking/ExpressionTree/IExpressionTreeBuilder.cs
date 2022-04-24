@@ -26,5 +26,10 @@ namespace ExpressionTreeWorking.ExpressionTree
         IExpressionTreeBuilder BuildInfixExpressionSympols();
         IExpressionTreeBuilder ShuntingYardAlgorithm();
         IExpressionTreeBuilder BuildTree();
+
+
+        IExpressionTree GetSymbol(int strPos, int exprPos);
+        IExpressionTree GenerateSymbolByType(Type type);
+        IExpressionTree GenerateSymbolByType(Type type, string str);
     }
 }

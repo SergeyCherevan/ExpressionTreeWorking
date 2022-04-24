@@ -79,7 +79,7 @@ namespace ExpressionTreeWorking.ExpressionTree
             return this;
         }
 
-        protected IExpressionTree GetSymbol(int strPos, int exprPos)
+        public IExpressionTree GetSymbol(int strPos, int exprPos)
         {
             string expression = InputInfixExpression;
 
@@ -137,7 +137,7 @@ namespace ExpressionTreeWorking.ExpressionTree
             }
         }
 
-        protected IExpressionTree GenerateSymbolByType(Type type)
+        public IExpressionTree GenerateSymbolByType(Type type)
         {
             ConstructorInfo constructor = type.GetConstructors(BindingFlags.Instance | BindingFlags.Public)[0];
             object[] args = new object[constructor.GetParameters().Length];
@@ -145,7 +145,7 @@ namespace ExpressionTreeWorking.ExpressionTree
             return constructor.Invoke(args) as IExpressionTree;
         }
 
-        protected IExpressionTree GenerateSymbolByType(Type type, string str)
+        public IExpressionTree GenerateSymbolByType(Type type, string str)
         {
             ConstructorInfo constructor = type.GetConstructor(new Type[] { typeof(string) });
             object[] args = new object[1] { str };

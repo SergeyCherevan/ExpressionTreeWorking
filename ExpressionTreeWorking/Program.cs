@@ -51,7 +51,7 @@ namespace ExpressionTreeWorking
 
 
 
-            IExpressionTree expression = new ExpressionTreeFacade().GetBuilder("-2 * -3 + 4").BuildAll();
+            IExpressionTree expression = new ExpressionTreeFacade().GetBuilder("sin(x)").BuildAll();
 
             string funcJson = JsonConvert.SerializeObject(expression, Formatting.Indented,
                 new JsonSerializerSettings
