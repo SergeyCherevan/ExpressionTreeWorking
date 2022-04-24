@@ -22,8 +22,8 @@ namespace ExpressionTreeWorking.ExpressionTree.ArithmeticOperations
             A = a; B = b; C = c; 
         }
 
-        public double Compute() => Math.Round(new Random().NextDouble() * (A.Compute() - B.Compute()) / C.Compute()) * C.Compute() + A.Compute();
+        public double Compute() => Math.Round(new Random().NextDouble() * (B.Compute() - A.Compute()) / C.Compute()) * C.Compute() + A.Compute();
 
-        public override string ToString() => $"Rand({A}, {B}, {C})";
+        public override string ToString() => $"rand({A}, {B}, {C})";
     }
 }

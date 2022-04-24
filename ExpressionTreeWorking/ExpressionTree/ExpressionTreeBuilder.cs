@@ -170,14 +170,14 @@ namespace ExpressionTreeWorking.ExpressionTree
                 }
                 else if (tocken is Comma)
                 {
-                    while (Stack.Last() is not OpenBracket)
+                    while (Stack.First() is not OpenBracket)
                     {
                         OutputQueue.Enqueue(Stack.Pop());
                     }
                 }
                 else if (tocken is IOperator op1)
                 {
-                    while (Stack.Any() && Stack.Last() is IOperator op2 && op2.Rate < op1.Rate)
+                    while (Stack.Any() && Stack.First() is IOperator op2 && op2.Rate < op1.Rate)
                     {
                         OutputQueue.Enqueue(Stack.Pop());
                     }
@@ -189,12 +189,12 @@ namespace ExpressionTreeWorking.ExpressionTree
                 }
                 else if (tocken is ClosingBracket)
                 {
-                    while (Stack.Any() && Stack.Last() is not OpenBracket)
+                    while (Stack.Any() && Stack.First() is not OpenBracket)
                     {
                         OutputQueue.Enqueue(Stack.Pop());
                     }
                     Stack.Pop();
-                    if (Stack.Any() && Stack.Last() is IFunction)
+                    if (Stack.Any() && Stack.First() is IFunction)
                     {
                         OutputQueue.Enqueue(Stack.Pop());
                     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 using System.Collections.Generic;
+using System.Globalization;
 using Newtonsoft.Json;
 
 using ExpressionTreeWorking.ExpressionTree;
@@ -51,7 +52,7 @@ namespace ExpressionTreeWorking
 
 
 
-            IExpressionTree expression = new ExpressionTreeFacade().GetBuilder("sin(x)").BuildAll();
+            IExpressionTree expression = new ExpressionTreeFacade().GetBuilder("2 * (3 + 5) * 2").BuildAll();
 
             string funcJson = JsonConvert.SerializeObject(expression, Formatting.Indented,
                 new JsonSerializerSettings
@@ -60,7 +61,7 @@ namespace ExpressionTreeWorking
                     TypeNameHandling = TypeNameHandling.All,
                 });
 
-            Console.WriteLine($"{expression} = {expression.Compute()} \n");
+            Console.WriteLine($"{expression} = {(expression.Compute() as IFormattable).ToString(null, new NumberFormatInfo() { CurrencyDecimalSeparator = "." })} \n");
             Console.WriteLine(funcJson);
         }
     }

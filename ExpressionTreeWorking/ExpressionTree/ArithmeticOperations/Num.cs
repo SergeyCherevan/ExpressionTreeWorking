@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -20,7 +21,7 @@ namespace ExpressionTreeWorking.ExpressionTree.ArithmeticOperations
 
         public Num(string str)
         {
-            decimal dec = Convert.ToDecimal(str);
+            decimal dec = Convert.ToDecimal(str, CultureInfo.InvariantCulture);
             
             Type type = typeof(T),
                  convertT = typeof(Convert);
@@ -32,6 +33,14 @@ namespace ExpressionTreeWorking.ExpressionTree.ArithmeticOperations
 
         public T Compute() => Value;
 
-        public override string ToString() => $"{Value}";
+        public override string ToString()
+        {
+            if (Value is IFormattable val)
+            {
+                return val.ToString(null, new NumberFormatInfo() { CurrencyDecimalSeparator = "." });
+            }
+
+            return $"{Value}";
+        }
     }
 }

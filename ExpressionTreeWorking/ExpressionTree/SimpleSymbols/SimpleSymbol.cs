@@ -19,5 +19,7 @@ namespace ExpressionTreeWorking.ExpressionTree.SimpleSymbols
         public virtual double Rate { get; protected set; }
 
         public virtual object Compute() => throw new NotImplementedException();
+
+        public override string ToString() => Symb;
     }
 }
