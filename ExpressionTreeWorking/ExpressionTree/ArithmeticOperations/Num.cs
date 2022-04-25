@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-using ExpressionTreeWorking.ExpressionTree.OperationsInterfaces;
+using ExpressionTreeWorking.ExpressionTree.Interfaces;
 
 namespace ExpressionTreeWorking.ExpressionTree.ArithmeticOperations
 {
@@ -32,6 +32,8 @@ namespace ExpressionTreeWorking.ExpressionTree.ArithmeticOperations
         }
 
         public T Compute() => Value;
+
+        public IExpressionTree SetVar(string name, object value) => this;
 
         public override string ToString()
         {

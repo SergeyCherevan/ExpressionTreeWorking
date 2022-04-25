@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using ExpressionTreeWorking.ExpressionTree.OperationsInterfaces;
+using ExpressionTreeWorking.ExpressionTree.Interfaces;
 
 namespace ExpressionTreeWorking.ExpressionTree.ArithmeticOperations
 {
@@ -23,6 +23,15 @@ namespace ExpressionTreeWorking.ExpressionTree.ArithmeticOperations
         }
 
         public double Compute() => Math.Round(new Random().NextDouble() * (B.Compute() - A.Compute()) / C.Compute()) * C.Compute() + A.Compute();
+
+        public IExpressionTree SetVar(string name, object value)
+        {
+            A.SetVar(name, value);
+            B.SetVar(name, value);
+            C.SetVar(name, value);
+
+            return this;
+        }
 
         public override string ToString() => $"rand({A}, {B}, {C})";
     }

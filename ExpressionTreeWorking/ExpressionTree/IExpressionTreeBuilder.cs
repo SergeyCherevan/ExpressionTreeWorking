@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using ExpressionTreeWorking.ExpressionTree.OperationsInterfaces;
+using ExpressionTreeWorking.ExpressionTree.Interfaces;
 
 namespace ExpressionTreeWorking.ExpressionTree
 {

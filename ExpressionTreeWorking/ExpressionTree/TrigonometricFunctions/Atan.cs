@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using ExpressionTreeWorking.ExpressionTree.OperationsInterfaces;
+using ExpressionTreeWorking.ExpressionTree.Interfaces;
 
 namespace ExpressionTreeWorking.ExpressionTree.TrigonometricFunctions
 {
@@ -21,6 +21,13 @@ namespace ExpressionTreeWorking.ExpressionTree.TrigonometricFunctions
         }
 
         public double Compute() => Math.Atan(A.Compute());
+
+        public IExpressionTree SetVar(string name, object value)
+        {
+            A.SetVar(name, value);
+
+            return this;
+        }
 
         public override string ToString() => $"atan({A})";
     }

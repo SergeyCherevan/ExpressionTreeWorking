@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using ExpressionTreeWorking.ExpressionTree.ArithmeticOperations;
 using ExpressionTreeWorking.ExpressionTree.TrigonometricFunctions;
-using ExpressionTreeWorking.ExpressionTree.OperationsInterfaces;
+using ExpressionTreeWorking.ExpressionTree.Interfaces;
 using ExpressionTreeWorking.ExpressionTree.SimpleSymbols;
 
 namespace ExpressionTreeWorking.ExpressionTree

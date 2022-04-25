@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using ExpressionTreeWorking.ExpressionTree.OperationsInterfaces;
+using ExpressionTreeWorking.ExpressionTree.Interfaces;
 
 namespace ExpressionTreeWorking.ExpressionTree.ArithmeticOperations
 {
@@ -24,6 +24,16 @@ namespace ExpressionTreeWorking.ExpressionTree.ArithmeticOperations
         public Var(string name) { Name = name; }
 
         public T Compute() => Value;
+
+        public IExpressionTree SetVar(string name, object value)
+        {
+            if (Name == name)
+            {
+                Value = (T)value; 
+            }
+
+            return this;
+        }
 
         public override string ToString() => $"{Name}";
     }

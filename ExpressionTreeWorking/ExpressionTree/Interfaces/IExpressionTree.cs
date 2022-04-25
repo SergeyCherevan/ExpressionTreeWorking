@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExpressionTreeWorking.ExpressionTree.OperationsInterfaces
+namespace ExpressionTreeWorking.ExpressionTree.Interfaces
 {
     public interface IExpressionTree
     {
         public string Symb { get; }
         public double Rate { get; }
         object Compute();
+        IExpressionTree SetVar(string name, object value);
     }
 
     public interface IExpressionTree<out T> : IExpressionTree

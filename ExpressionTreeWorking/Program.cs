@@ -5,7 +5,7 @@ using System.Globalization;
 using Newtonsoft.Json;
 
 using ExpressionTreeWorking.ExpressionTree;
-using ExpressionTreeWorking.ExpressionTree.OperationsInterfaces;
+using ExpressionTreeWorking.ExpressionTree.Interfaces;
 using static ExpressionTreeWorking.ExpressionTree.ExpressionTreeFacade;
 
 namespace ExpressionTreeWorking
@@ -52,7 +52,7 @@ namespace ExpressionTreeWorking
 
 
 
-            IExpressionTree expression = new ExpressionTreeFacade().GetBuilder("2 * (3 + 5) * 2").BuildAll();
+            IExpressionTree expression = new ExpressionTreeFacade().GetBuilder("x ^ y").BuildAll().SetVar("x", 2.0).SetVar("y", 3.0);
 
             string funcJson = JsonConvert.SerializeObject(expression, Formatting.Indented,
                 new JsonSerializerSettings

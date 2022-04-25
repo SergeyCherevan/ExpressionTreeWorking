@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using ExpressionTreeWorking.ExpressionTree.OperationsInterfaces;
+using ExpressionTreeWorking.ExpressionTree.Interfaces;
 
 namespace ExpressionTreeWorking.ExpressionTree.SimpleSymbols
 {
@@ -19,6 +19,8 @@ namespace ExpressionTreeWorking.ExpressionTree.SimpleSymbols
         public virtual double Rate { get; protected set; }
 
         public virtual object Compute() => throw new NotImplementedException();
+
+        public virtual IExpressionTree SetVar(string name, object value) => this;
 
         public override string ToString() => Symb;
     }

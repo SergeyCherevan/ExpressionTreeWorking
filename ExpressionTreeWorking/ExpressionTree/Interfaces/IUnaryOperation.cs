@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExpressionTreeWorking.ExpressionTree.OperationsInterfaces
+namespace ExpressionTreeWorking.ExpressionTree.Interfaces
 {
     public interface IUnaryOperation : IOperation
     {
