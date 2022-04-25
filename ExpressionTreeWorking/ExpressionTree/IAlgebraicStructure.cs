@@ -8,7 +8,7 @@ using ExpressionTreeWorking.ExpressionTree.Interfaces;
 
 namespace ExpressionTreeWorking.ExpressionTree
 {
-    public interface IExpressionTreeFacade
+    public interface IAlgebraicStructure
     {
         List<IExpressionTree> Symbols { get; }
 

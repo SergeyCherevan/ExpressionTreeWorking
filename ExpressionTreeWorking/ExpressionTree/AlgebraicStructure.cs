@@ -11,7 +11,7 @@ using ExpressionTreeWorking.ExpressionTree.SimpleSymbols;
 
 namespace ExpressionTreeWorking.ExpressionTree
 {
-    public class ExpressionTreeFacade : IExpressionTreeFacade
+    public class AlgebraicStructure : IAlgebraicStructure
     {
         public static IExpressionTree<double> sum(IExpressionTree<double> a, IExpressionTree<double> b)
             => new Sum(a, b);
@@ -59,7 +59,7 @@ namespace ExpressionTreeWorking.ExpressionTree
 
         private static List<IExpressionTree> symbols;
 
-        static ExpressionTreeFacade()
+        static AlgebraicStructure()
         {
             IExpressionTree<double> n = null;
 

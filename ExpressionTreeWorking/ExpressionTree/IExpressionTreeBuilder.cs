@@ -11,7 +11,7 @@ namespace ExpressionTreeWorking.ExpressionTree
     public interface IExpressionTreeBuilder
     {
         string InputInfixExpression { get; set; }
-        IExpressionTreeFacade Facade { get; set; }
+        IAlgebraicStructure Structure { get; set; }
 
         List<IExpressionTree> InfixExpressionSymbols { get; set; }
         Queue<IExpressionTree> OutputQueue { get; set; }

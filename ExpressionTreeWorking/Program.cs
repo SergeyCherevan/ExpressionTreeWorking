@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 using ExpressionTreeWorking.ExpressionTree;
 using ExpressionTreeWorking.ExpressionTree.Interfaces;
-using static ExpressionTreeWorking.ExpressionTree.ExpressionTreeFacade;
+using static ExpressionTreeWorking.ExpressionTree.AlgebraicStructure;
 
 namespace ExpressionTreeWorking
 {
@@ -36,7 +36,7 @@ namespace ExpressionTreeWorking
 
 
             /*Queue<IExpressionTree> expressionList
-                = new ExpressionTreeBuilder("2 * 4 ^ 5 + 3 * 8", new ExpressionTreeFacade())
+                = new ExpressionTreeBuilder("2 * 4 ^ 5 + 3 * 8", new AlgebraicStructure())
                 .BuildInfixExpressionSympols()
                 .ShuntingYardAlgorithm()
                 .OutputQueue;
@@ -52,7 +52,7 @@ namespace ExpressionTreeWorking
 
 
 
-            IExpressionTree expression = new ExpressionTreeFacade().GetBuilder("x ^ y").BuildAll().SetVar("x", 2.0).SetVar("y", 3.0);
+            IExpressionTree expression = new AlgebraicStructure().GetBuilder("x ^ y").BuildAll().SetVar("x", 2.0).SetVar("y", 3.0);
 
             string funcJson = JsonConvert.SerializeObject(expression, Formatting.Indented,
                 new JsonSerializerSettings

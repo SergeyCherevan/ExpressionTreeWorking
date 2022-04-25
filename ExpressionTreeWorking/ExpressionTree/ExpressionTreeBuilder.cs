@@ -14,7 +14,7 @@ namespace ExpressionTreeWorking.ExpressionTree
     public class ExpressionTreeBuilder : IExpressionTreeBuilder
     {
         public string InputInfixExpression { get; set; }
-        public IExpressionTreeFacade Facade { get; set; }
+        public IAlgebraicStructure Structure { get; set; }
 
         public List<IExpressionTree> InfixExpressionSymbols { get; set; }
         public Queue<IExpressionTree> OutputQueue { get; set; }
@@ -26,10 +26,10 @@ namespace ExpressionTreeWorking.ExpressionTree
 
 
 
-        public ExpressionTreeBuilder(string inputString, IExpressionTreeFacade facade)
+        public ExpressionTreeBuilder(string inputString, IAlgebraicStructure structure)
         {
             InputInfixExpression = inputString.Replace(" ", "").Replace("\t", "").Replace("\n", "");
-            Facade = facade;
+            Structure = structure;
         }
 
         public IExpressionTree BuildAll()
@@ -63,11 +63,11 @@ namespace ExpressionTreeWorking.ExpressionTree
 
                     if (Char.IsNumber(InputInfixExpression, strI))
                     {
-                        symb = GenerateSymbolByType(Facade.GetTypeOfNum(), symbStr);
+                        symb = GenerateSymbolByType(Structure.GetTypeOfNum(), symbStr);
                     }
                     else
                     {
-                        symb = GenerateSymbolByType(Facade.GetTypeOfVar(), symbStr);
+                        symb = GenerateSymbolByType(Structure.GetTypeOfVar(), symbStr);
                     }
 
                     strI += symbStr.Length;
@@ -97,8 +97,8 @@ namespace ExpressionTreeWorking.ExpressionTree
                 return false;
             };
 
-            int first = Facade.Symbols.FindIndex(pred),
-                last = Facade.Symbols.FindLastIndex(pred);
+            int first = Structure.Symbols.FindIndex(pred),
+                last = Structure.Symbols.FindLastIndex(pred);
 
             if (first == -1)
             {
@@ -106,20 +106,20 @@ namespace ExpressionTreeWorking.ExpressionTree
             }
             else if (first == last)
             {
-                return GenerateSymbolByType(Facade.Symbols[first].GetType());
+                return GenerateSymbolByType(Structure.Symbols[first].GetType());
             }
             else
             {
                 IExpressionTree unary, binary;
 
-                if (GenerateSymbolByType(Facade.Symbols[first].GetType()) is IUnaryOperation u)
+                if (GenerateSymbolByType(Structure.Symbols[first].GetType()) is IUnaryOperation u)
                 {
-                    unary = u; binary = GenerateSymbolByType(Facade.Symbols[last].GetType());
+                    unary = u; binary = GenerateSymbolByType(Structure.Symbols[last].GetType());
                 }
                 else
                 {
-                    unary = GenerateSymbolByType(Facade.Symbols[last].GetType());
-                    binary = GenerateSymbolByType(Facade.Symbols[first].GetType());
+                    unary = GenerateSymbolByType(Structure.Symbols[last].GetType());
+                    binary = GenerateSymbolByType(Structure.Symbols[first].GetType());
                 }
 
                 try
